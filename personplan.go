@@ -193,13 +193,17 @@ func (plans *Plans) AddSemesterPlan(sp *SemesterPlan) {
 	plans.all = append(plans.all, sp)
 }
 
+// Get a string that is suitable to put in a table cell
 func (plans *Plans) HTMLHourEvents(date time.Time) string {
 	s := ""
-	for _, pp := range plans.all {
-		s2 := pp.ViewHour(date)
-		if s2 == "" {
-			s += "Nothing"
-		} else {
+	s2 := ""
+	for _, sp := range plans.all {
+		s2 = ""
+		hourinfo := sp.GetHourEventStructs(date)
+		for _, hev := range hourinfo {
+			s2 += fmt.Sprintf("%s at %s%s", hev.who, hev.where, "<br>")
+		}
+		if s2 != "" {
 			s += s2
 		}
 	}
