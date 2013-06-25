@@ -20,14 +20,14 @@ func Test(t *testing.T) {
 
 	fmt.Println(ppBob.String())
 
-	periodplan := NewPeriodPlan(2013, 1, 8)
+	periodplan := NewSemesterPlan(2013, 1, 8)
 	periodplan.AddPersonPlan(ppAlexander)
 	periodplan.AddPersonPlan(ppBob)
 
 	fmt.Println(periodplan.String())
 
 	allPlans := NewPlans()
-	allPlans.AddPeriodPlan(periodplan)
+	allPlans.AddSemesterPlan(periodplan)
 
 	fmt.Println("Info for all plans:")
 	date := time.Date(2013, 3, 4, 10, 32, 0, 0, time.UTC)
@@ -37,7 +37,7 @@ func Test(t *testing.T) {
 		fmt.Println(pp.ViewDay(date))
 	}
 
-	allPlans.HourInfo(date)
+	allPlans.PrintHourEvents(date)
 
-	allPlans.HourInfo(time.Date(2013, 3, 7, 9, 14, 0, 0, time.UTC))
+	allPlans.PrintHourEvents(time.Date(2013, 3, 7, 9, 14, 0, 0, time.UTC))
 }
