@@ -196,7 +196,12 @@ func (plans *Plans) AddSemesterPlan(sp *SemesterPlan) {
 func (plans *Plans) HTMLHourEvents(date time.Time) string {
 	s := ""
 	for _, pp := range plans.all {
-		s += pp.ViewHour(date) + "</br>"
+		s2 := pp.ViewHour(date)
+		if s2 == "" {
+			s += "Nothing"
+		} else {
+			s += s2
+		}
 	}
 	return s
 }
