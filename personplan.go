@@ -219,5 +219,3 @@ func (plans *Plans) PrintHourEvents(date time.Time) {
 		fmt.Println(s)
 	}
 }
-
-
