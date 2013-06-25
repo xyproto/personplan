@@ -193,6 +193,14 @@ func (plans *Plans) AddSemesterPlan(sp *SemesterPlan) {
 	plans.all = append(plans.all, sp)
 }
 
+func (plans *Plans) HTMLHourEvents(date time.Time) string {
+	s := ""
+	for _, pp := range plans.all {
+		s += pp.ViewHour(date) + "</br>"
+	}
+	return s
+}
+
 // TODO: Create a function just like this that returns a list of HourEvent structs
 func (plans *Plans) PrintHourEvents(date time.Time) {
 	fmt.Printf("What's up at %s?\n", date.String())
