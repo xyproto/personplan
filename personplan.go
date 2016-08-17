@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/xyproto/moskus"
+	"github.com/xyproto/calendar"
 )
 
 const (
@@ -60,7 +60,7 @@ func (pp *PersonPlan) AddWorkday(dayoftheweek time.Weekday, fromHour, uptoHour i
 }
 
 func (pp *PersonPlan) String() string {
-	cal, err := moskus.NewCalendar(pp.locale, true)
+	cal, err := calendar.NewCalendar(pp.locale, true)
 	if err != nil {
 		panic("No calendar available for " + pp.locale)
 	}
