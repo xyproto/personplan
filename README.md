@@ -1,4 +1,8 @@
 personplan
 ==========
 
-Module for generating a per hour workplan based on more general information about who works when.
+Code for generating work schedules.
+
+## General info
+
+License: MIT
